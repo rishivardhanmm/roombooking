@@ -25,4 +25,12 @@ public class UserController {
     public ResponseEntity<String> signUp(@RequestBody User user) {
         return userService.signUp(user);
     }
+
+    @PostMapping
+    @RequestMapping("/login")
+    public ResponseEntity<String> login(@RequestBody User user) {
+        String email = user.getEmail();
+        String password = user.getPassword();
+        return userService.loginUser(email, password);
+    }
 }

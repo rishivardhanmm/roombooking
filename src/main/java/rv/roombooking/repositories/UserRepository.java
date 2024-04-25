@@ -4,6 +4,11 @@ package rv.roombooking.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import rv.roombooking.entities.User;
 
+import java.util.Optional;
+
 public interface UserRepository extends JpaRepository<User, Long> {
-    // You can add custom query methods if needed
+
+
+    Optional<User> findByEmailAndPassword(String email, String password);
+
 }
